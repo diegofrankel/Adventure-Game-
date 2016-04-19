@@ -1,0 +1,24 @@
+* {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+.note {
+    font-size: 8px;
+    margin-right: 80%
+}
+div {
+    padding: 15px
+}
+.clicked {
+    color: red;
+    background-color: yellow;
+}
+#next {
+    font-size: 32px
+}
+#inline {
+    display: inline;
+    padding: 10px;
+}
