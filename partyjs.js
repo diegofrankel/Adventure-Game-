@@ -4,6 +4,7 @@ $(document).ready( function() {
     sex= "";
     alc= "";
     smallschool= "";
+    ride= "";
     $('#disclaimer').click( function() {
         $('.note').toggleClass('hide');
     });
@@ -111,6 +112,24 @@ $(document).ready( function() {
         me = [grade, sex, alc, smallschool];
         $('#next').removeClass('hide');
         document.getElementById('next').innerHTML = '<a href="beginning/' + compile(me) + '">Continue</a>'
+    });
+    $('.rideA').click(function () {
+        ride = "A";
+        $(this).addClass("clicked");
+        $('.rideB').removeClass('clicked');
+        $('.rideC').removeClass('clicked');
+    });
+    $('.rideB').click(function () {
+        ride = "B";
+        $(this).addClass("clicked")
+        $('.rideA').removeClass('clicked');
+        $('.rideC').removeClass('clicked');
+    });
+    $('.rideC').click(function () {
+        ride = "C";
+        $(this).addClass("clicked")
+        $('.rideA').removeClass('clicked');
+        $('.rideB').removeClass('clicked');
     });
 });
 
