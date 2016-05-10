@@ -5,6 +5,8 @@ $(document).ready( function() {
     alc= "";
     smallschool= "";
     ride= "";
+    rage1= "";
+    getinrage1 = "";
     $('#disclaimer').click( function() {
         $('.note').toggleClass('hide');
     });
@@ -121,15 +123,43 @@ $(document).ready( function() {
     });
     $('.rideB').click(function () {
         ride = "B";
-        $(this).addClass("clicked")
+        $(this).addClass("clicked");
         $('.rideA').removeClass('clicked');
         $('.rideC').removeClass('clicked');
     });
     $('.rideC').click(function () {
         ride = "C";
-        $(this).addClass("clicked")
+        $(this).addClass("clicked");
         $('.rideA').removeClass('clicked');
         $('.rideB').removeClass('clicked');
     });
+    $('.hopfence').click( function() {
+        rage1 = "hopfence";
+        var num = Math.random();
+        if (num < 0.5) {
+            getinrage1 = "no";
+        }
+        else {
+            getinrage1 = "yes";
+        }
+        $(this).addClass('clicked');
+        $('.paybouncer').removeClass('clicked');
+    });
+    $('.paybouncer').click( function() {
+        rage1 = "paybouncer";
+        getinrage1 = "yes";
+        $(this).addClass('clicked');
+        $('.hopfence').removeClass('clicked');
+    });
+    $('.getinchance').click(function() {
+        if (getinrage1 === "no") {
+            document.getElementById("bouncer").innerHTML = '<img src=""/>'; /**insert bouncerthrow.jpg**/
+            document.getElementById("paybouncer").innerHTML="Slip the bouncer a $20, bc you fucked up";
+        }
+        else if (getinrage1 === "yes") {
+            this.innerHTML="<a href=''>You made it</a>"
+        }
+    })
 });
+
 
