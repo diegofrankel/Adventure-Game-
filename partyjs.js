@@ -7,6 +7,7 @@ $(document).ready( function() {
     ride= "";
     rage1= "";
     getinrage1 = "";
+    leaverage1= "";
     $('#disclaimer').click( function() {
         $('.note').toggleClass('hide');
     });
@@ -133,7 +134,7 @@ $(document).ready( function() {
         $('.rideA').removeClass('clicked');
         $('.rideB').removeClass('clicked');
     });
-    $('.hopfence').click( function() {
+    $('#hopfence').click( function() {
         rage1 = "hopfence";
         var num = Math.random();
         if (num < 0.5) {
@@ -143,23 +144,46 @@ $(document).ready( function() {
             getinrage1 = "yes";
         }
         $(this).addClass('clicked');
-        $('.paybouncer').removeClass('clicked');
+        $('#paybouncer').removeClass('clicked');
     });
-    $('.paybouncer').click( function() {
+    $('#paybouncer').click( function() {
         rage1 = "paybouncer";
         getinrage1 = "yes";
         $(this).addClass('clicked');
-        $('.hopfence').removeClass('clicked');
+        $('#hopfence').removeClass('clicked');
     });
     $('.getinchance').click(function() {
         if (getinrage1 === "no") {
-            document.getElementById("bouncer").innerHTML = '<img src=""/>'; /**insert bouncerthrow.jpg**/
+            document.getElementById("bouncer").innerHTML = '<img src="../img/bouncerthrow.jpg"/>';
             document.getElementById("paybouncer").innerHTML="Slip the bouncer a $20, bc you fucked up";
+            document.getElementById("cantgetin").innerHTML = "The bouncer caught you trying to hop the fence, you can either pay him double or cat. Don't be a cat";
+            $('#hopfence').addClass('hide');
         }
         else if (getinrage1 === "yes") {
-            this.innerHTML="<a href=''>You made it</a>"
+            this.innerHTML="<a href='find30.html'>You made it</a>"; /**some error here. html sees this as rage/rage/find30**/
+        }
+    });
+    $('#getoutfence').click( function() {
+        var num = Math.random();
+        if (num < 0.5) {
+            leaveinrage1 = "no";
+            $('.getoutchance').innerHTML = "<a href='arrested.html'>Did I make it</a>"; /**not working for some reason**/
+        }
+        else {
+            leaveinrage1 = "yes";
+        }
+        $(this).addClass('clicked');
+        $('#getoutwalk').removeClass('clicked');
+    });
+    $('#getoutwalk').click( function() {
+        leaverage1 = "yes";
+        $(this).addClass('clicked');
+        $('#getoutfence').removeClass('clicked');
+    });
+    $('.getoutchance').click(function() {
+        if (leaveinrage1 === "yes") {
+            this.innerHTML="<a href=''>You made it</a>";
         }
     })
 });
-
 
