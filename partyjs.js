@@ -8,6 +8,9 @@ $(document).ready( function() {
     rage1= "";
     getinrage1 = "";
     leaverage1= "";
+    numdrinks= "";
+    drinkcounter= "";
+    friend= "";
     $('#disclaimer').click( function() {
         $('.note').toggleClass('hide');
     });
@@ -160,14 +163,13 @@ $(document).ready( function() {
             $('#hopfence').addClass('hide');
         }
         else if (getinrage1 === "yes") {
-            this.innerHTML="<a href='find30.html'>You made it</a>"; /**some error here. html sees this as rage/rage/find30**/
+            this.innerHTML="<a href='find30.html'>You made it</a>"; /**some error here. html sees this as rage1/rage1/find30**/
         }
     });
     $('#getoutfence').click( function() {
         var num = Math.random();
         if (num < 0.5) {
             leaveinrage1 = "no";
-            $('.getoutchance').innerHTML = "<a href='arrested.html'>Did I make it</a>"; /**not working for some reason**/
         }
         else {
             leaveinrage1 = "yes";
@@ -182,8 +184,42 @@ $(document).ready( function() {
     });
     $('.getoutchance').click(function() {
         if (leaveinrage1 === "yes") {
-            this.innerHTML="<a href=''>You made it</a>";
+            var num = Math.random();
+            if (ride = "rideA" && num < 0.7) {
+                $('.getoutchance').innerHTML="<a href='rage2/arriverage2.html'>You made it</a>";
+                $('.getoutchance').removeClass('getoutchance');
+            }
+            else if (ride = "rideB" && num < 0.5) {
+                $('.getoutchance').innerHTML="<a href='rage2/arriverage2.html'>You made it</a>";
+                $('.getoutchance').removeClass('getoutchance');
+            }
+            else if (ride= "rideC" && num < 0.3) {
+                $('.getoutchance').innerHTML="<a href='rage2/arriverage2.html'>You made it</a>";
+                $('.getoutchance').removeClass('getoutchance');
+            }
+            else {
+                $('.getoutchance').innerHTML="<a href='../cat.html'>You made it (sorta)</a>";
+                $('.getoutchance').removeClass('getoutchance');
+            }
         }
-    })
+        else {
+            $('.getoutchance').innerHTML="<a href='arrested.html'>You didn't make it :(</a>";
+            $('.getoutchance').removeClass('getoutchance');
+        }
+    });
+    /**snake outcome should be stored in variable drinks**/
+    $('#drinkone').click(function() {
+        numdrinks -= 1;
+        drinkcounter += 1;
+    });
+    $('.friendA').click(function() {
+        friend = "friendA";
+    });
+    $('.friendB').click(function() {
+        friend = "friendB";
+    });
+    $('.friendC').click(function() {
+        friend = "friendC";
+    });
 });
 
