@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="//ajax.googleap
-is.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="partyjs.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="snakegame.css">
     <script src="snakegame.js" type="text/javascript"></script>
     <title>Snake the 30 rack</title>
+<script>
+    //find way to get query parameter
+    $(document).ready(function() {
+        $("#continue").click(function () {
+            window.location = "rage1/policerage1.html?eatenItemsCount=" + eatenItemsCount;
+        });
+    });
+</script>
 </head>
 <body>
+<p>A 30 rack of fine beverages has just been dispersed around the heez. Your job is to find each can and store them for later consumption. Play snake. Each point you earn is one can you find. Find as many as you can!</p>
 <div id='game'>
     <div id='gameField'>
     </div>
@@ -23,9 +29,7 @@ is.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
             <div id='speed'>1</div>
         </div>
         <div id='gamemsg'>
-            <div id='nextRndMsg'>Next Round!</div>
-            <div id='loseMsg'>You lose! Try again </div>
-            <div id='winMsg'>You have collected all of the beers. Congratulations, you win!</div>
+            <div id='msg' class="hide"></div>
         </div>
         <div id='rules'>
             <p>Press Space to start or restart the game</p>
@@ -34,6 +38,7 @@ is.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         </div>
     </div>
 </div>
+<button id="continue" class="block">Continue</button>
 
 </body>
 </html>

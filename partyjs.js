@@ -163,7 +163,7 @@ $(document).ready( function() {
             $('#hopfence').addClass('hide');
         }
         else if (getinrage1 === "yes") {
-            this.innerHTML="<a href='find30.html'>You made it</a>"; /**some error here. html sees this as rage1/rage1/find30**/
+            this.innerHTML="<a href='../snakegame.html'>You made it</a>";
         }
     });
     $('#getoutfence').click( function() {
@@ -183,6 +183,8 @@ $(document).ready( function() {
         $('#getoutfence').removeClass('clicked');
     });
     $('.getoutchance').click(function() {
+        endride = finalride();
+        document.getElementById().innerHTML = "<a href='end/" + endride + ".html'>Continue</a>";
         if (leaveinrage1 === "yes") {
             var num = Math.random();
             if (ride = "rideA" && num < 0.7) {
@@ -207,19 +209,45 @@ $(document).ready( function() {
             $('.getoutchance').removeClass('getoutchance');
         }
     });
-    /**snake outcome should be stored in variable drinks**/
-    $('#drinkone').click(function() {
-        numdrinks -= 1;
-        drinkcounter += 1;
-    });
-    $('.friendA').click(function() {
-        friend = "friendA";
-    });
-    $('.friendB').click(function() {
-        friend = "friendB";
-    });
-    $('.friendC').click(function() {
-        friend = "friendC";
-    });
-});
 
+    var finalride = function() {
+        var endride= "";
+        if (pong === "win") { //variable should be declared by kalia in game
+            if (grade === "senior") {
+                if (sex === "female") {
+                    endride = "seniorgirlwin";
+                }
+                else {
+                    endride = "seniorboywin";
+                }
+            }
+            else {
+                if (sex === "female") {
+                    endride = "girlwin";
+                }
+                else {
+                    endride = "boywin";
+                }
+            }
+        }
+        else {
+            if(grade === "senior" ){
+                if (sex === "female"){
+                    endride = "seniorgirllose";
+                }
+                else {
+                    endride = "seniorboylose";
+                }
+            }
+            else {
+                if (sex === "female"){
+                    endride = "girllose";
+                }
+                else {
+                    endride = "boylose";
+                }
+            }
+        }
+        return endride;
+    };
+});

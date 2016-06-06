@@ -1,3 +1,6 @@
+
+
+
 //***********MAIN.js**********//
 var gameBoard;
 var snake;
@@ -84,12 +87,17 @@ function startGame() {
 function endGame() {
     if(gameExecutor)
         clearInterval(gameExecutor);
+
+        document.getElementById('msg').innerHTML= "<p>You only got " + eatenItemsCount + " beverages. You can restart (press space) or continue with the beverages you have</p>"
+        $('#msg').toggleClass('hide');
         gameBoard.showLoseMessage();
     gameBoard.clearBoard();
 };
 function winGame() {
     if(gameExecutor)
         clearInterval(gameExecutor);
+    document.getElementById('msg').innerHTML= "<p>You have collected all of the beverages. Congratulations, you win!</p>";
+    $('#msg').toggleClass('hide');
     gameBoard.clearBoard();
 }
 

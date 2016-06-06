@@ -22,4 +22,7 @@ div {
     display: inline;
     padding: 10px;
 }
+.block {
+    display: block;
+}
 

@@ -57,9 +57,11 @@
     background:red;
 }
 
-#gamemsg {
+#msg {
     font-size:16pt;
     margin-bottom:35px;
-    visibility:hidden;
     color:gold;
+}
+.hide {
+    display:none;
 }
